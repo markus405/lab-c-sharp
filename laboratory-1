@@ -1,0 +1,17 @@
+   static void Main(string[] args)
+        {
+            string ax, t,v0;
+            double vx;
+            Console.Write("Введите ускорение ");
+            ax = Console.ReadLine();
+            Console.Write("Введите  время ");
+            t = Console.ReadLine();
+            Console.Write("Введите  начальную скорость ");
+            v0 = Console.ReadLine();
+
+            vx = Convert.ToDouble(v0) + Convert.ToDouble(ax)* Convert.ToDouble(t);
+
+            Console.WriteLine("Расстояние которе он пробежал = " + vx);
+
+            Console.ReadKey();
+        }
