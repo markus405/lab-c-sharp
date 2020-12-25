@@ -1,0 +1,62 @@
+using System;
+
+namespace Laba_5_cs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int m, n;
+            Console.Write("Введите кол-во строк в масиве: ");
+            m = Convert.ToByte(Console.ReadLine());
+            Console.Write("Введите кол-во столбиков в масиве: ");
+            n = Convert.ToByte(Console.ReadLine());
+
+            int[,] arr = new int[m, n];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    arr[i, j] = rnd.Next(0, 50);
+                }
+            }
+            Console.WriteLine("\nНаш массив:");
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(arr[i, j] + ", ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Выберите строчку которую хотите удалить:");
+            int k;
+            k = Convert.ToInt32(Console.ReadLine());
+            int[,] newArr = new int[m - 1, n];
+            for (int i = 0; i < k-1; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    newArr[i, j] = arr[i, j];
+                }
+            }
+            for (int i = k; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    newArr[i - 1, j] = arr[i, j];
+                }
+            }
+            Console.WriteLine($"\nНаш массив без {k} строчки:");
+            for (int i = 0; i < m-1; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(newArr[i, j] + ", ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
